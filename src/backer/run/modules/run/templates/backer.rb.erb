@@ -1,0 +1,48 @@
+Model.new(:backer, 'backer') do
+  compress_with Gzip
+
+  database MySQL do |db|
+    db.name = :all
+    db.username = "<%= @mysql_username %>"
+    db.password = "<%= @mysql_password %>"
+    db.host = "<%= @mysql_host %>"
+    db.port = <%= @mysql_port %>
+    db.skip_tables = ["mysql.event"]
+    db.additional_options = ["--quick", "--single-transaction"]
+    db.prepare_backup = true
+  end
+
+<% if @archive == "On" -%>
+  archive :archive do |archive|
+    archive.add "<%= @archive_add %>"
+  end
+<% end -%>
+
+<% if @s3 == "On" -%>
+  store_with S3 do |s3|
+    s3.access_key_id = "<%= @s3_access_key_id %>"
+    s3.secret_access_key = "<%= @s3_secret_access_key %>"
+    s3.region = "<%= @s3_region %>"
+    s3.bucket = "<%= @s3_bucket %>"
+    s3.max_retries = <%= @s3_max_retries %>
+    s3.retry_waitsec = <%= @s3_retry_waitsec %>
+    s3.keep = <%= @s3_keep %>
+  end
+<% end -%>
+
+<% if @hipchat == "On" -%>
+  notify_by Hipchat do |hipchat|
+    hipchat.on_success = true
+    hipchat.on_warning = true
+    hipchat.on_failure = true
+
+    hipchat.success_color = "green"
+    hipchat.warning_color = "yellow"
+    hipchat.failure_color = "red"
+
+    hipchat.token = "<%= @hipchat_token %>"
+    hipchat.from = "<%= @hipchat_from %>"
+    hipchat.rooms_notified = "<%= @hipchat_rooms_notified %>"
+  end
+<% end -%>
+end

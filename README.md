@@ -1,4 +1,4 @@
-# docker-backer
+# backer
 
 ## Run the container
 
@@ -34,14 +34,14 @@ Using the `docker` command:
       -e HIPCHAT_FROM="" \
       -e HIPCHAT_ROOMS_NOTIFIED="" \
       -d \
-      dockerizedrupal/backer:1.0.0
+      dockerizedrupal/backer:1.0.1
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.0 \
+      && git checkout 1.0.1 \
       && sudo docker-compose up
 
 ## Build the image
@@ -49,8 +49,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.0 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.0 . \
+      && git checkout 1.0.1 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.1 . \
       && cd -
 
 ## License

@@ -1,5 +1,5 @@
 backer:
-  image: dockerizedrupal/backer:1.0.0
+  image: dockerizedrupal/backer:1.0.1
   hostname: backer
   volumes_from:
     - backer-data

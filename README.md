@@ -11,7 +11,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -e SERVER_NAME="localhost" \
-      -e MYSQL_HOST="localhost" \
+      -e MYSQL_HOST="" \
       -e MYSQL_PORT="3306" \
       -e MYSQL_USERNAME="root" \
       -e MYSQL_PASSWORD="root" \
@@ -30,14 +30,14 @@ Using the `docker` command:
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
       -d \
-      dockerizedrupal/backer:1.0.2
+      dockerizedrupal/backer:1.0.3
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
+      && git checkout 1.0.3 \
       && sudo docker-compose up
 
 ## Build the image
@@ -45,8 +45,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.2 . \
+      && git checkout 1.0.3 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.3 . \
       && cd -
 
 ## License

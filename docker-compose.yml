@@ -3,6 +3,7 @@ backer:
   hostname: backer
   environment:
     - SERVER_NAME=localhost
+    - TIMEZONE=Etc/UTC
     - MYSQL_HOST=
     - MYSQL_PORT=3306
     - MYSQL_USERNAME=root

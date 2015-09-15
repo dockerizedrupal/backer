@@ -6,6 +6,12 @@ fi
 
 export FACTER_SERVER_NAME="${SERVER_NAME}"
 
+if [ -z "${TIMEZONE}" ]; then
+  TIMEZONE="Etc/UTC"
+fi
+
+export FACTER_TIMEZONE="${TIMEZONE}"
+
 SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
 
 export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"

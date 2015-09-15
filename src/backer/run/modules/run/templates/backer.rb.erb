@@ -1,6 +1,7 @@
-Model.new(:backer, 'backer') do
+Model.new(:backer, 'Backer at <%= @server_name %>') do
   compress_with Gzip
 
+<% if @mysql_host and !@mysql_host.empty? %>
   database MySQL do |db|
     db.name = :all
     db.username = "<%= @mysql_username %>"
@@ -11,6 +12,7 @@ Model.new(:backer, 'backer') do
     db.additional_options = ["--quick", "--single-transaction"]
     db.prepare_backup = true
   end
+<% end %>
 
 <% if @archive == "On" -%>
   archive :archive do |archive|
@@ -30,19 +32,15 @@ Model.new(:backer, 'backer') do
   end
 <% end -%>
 
-<% if @hipchat == "On" -%>
-  notify_by Hipchat do |hipchat|
-    hipchat.on_success = true
-    hipchat.on_warning = true
-    hipchat.on_failure = true
+<% if @mail == "On" -%>
+  notify_by Mail do |mail|
+    mail.on_success = true
+    mail.on_warning = true
+    mail.on_failure = true
 
-    hipchat.success_color = "green"
-    hipchat.warning_color = "yellow"
-    hipchat.failure_color = "red"
-
-    hipchat.token = "<%= @hipchat_token %>"
-    hipchat.from = "<%= @hipchat_from %>"
-    hipchat.rooms_notified = "<%= @hipchat_rooms_notified %>"
+    mail.delivery_method = :sendmail
+    mail.from = "<%= @mail_from %>"
+    mail.to = "<%= @mail_to %>"
   end
 <% end -%>
 end

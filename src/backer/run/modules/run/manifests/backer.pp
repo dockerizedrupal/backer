@@ -6,6 +6,4 @@ class run::backer {
     content => template('run/backer.rb.erb'),
     mode => 644
   }
-
-  bash_exec { 'mkdir -p /backer/data': }
 }

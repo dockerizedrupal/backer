@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+if [ -z "${SERVER_NAME}" ]; then
+  SERVER_NAME="localhost"
+fi
+
+export FACTER_SERVER_NAME="${SERVER_NAME}"
+
+SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
+
+export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"
+export FACTER_SMTP_PORT="$(echo "${SMTP_PORT}" | cut -d ":" -f2)"
+
 if [ -n "${MYSQL_HOST}" ]; then
   export FACTER_MYSQL_HOST="${MYSQL_HOST}"
 
@@ -70,12 +81,10 @@ fi
 
 export FACTER_S3_KEEP="${S3_KEEP}"
 
-if [ -z "${HIPCHAT}" ]; then
-  export HIPCHAT="Off"
+if [ -z "${MAIL}" ]; then
+  export MAIL="Off"
 fi
 
-export FACTER_HIPCHAT="${HIPCHAT}"
-
-export FACTER_HIPCHAT_TOKEN="${HIPCHAT_TOKEN}"
-export FACTER_HIPCHAT_FROM="${HIPCHAT_FROM}"
-export FACTER_HIPCHAT_ROOMS_NOTIFIED="${HIPCHAT_ROOMS_NOTIFIED}"
+export FACTER_MAIL="${MAIL}"
+export FACTER_MAIL_FROM="${MAIL_FROM}"
+export FACTER_MAIL_TO="${MAIL_TO}"

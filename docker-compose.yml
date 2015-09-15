@@ -1,9 +1,8 @@
 backer:
-  image: dockerizedrupal/backer:1.0.1
+  image: backer
   hostname: backer
-  volumes_from:
-    - backer-data
   environment:
+    - SERVER_NAME=localhost
     - MYSQL_HOST=localhost
     - MYSQL_PORT=3306
     - MYSQL_USERNAME=root
@@ -19,12 +18,6 @@ backer:
     - S3_KEEP=30
     - ARCHIVE=Off
     - ARCHIVE_ADD=
-    - HIPCHAT=Off
-    - HIPCHAT_TOKEN=
-    - HIPCHAT_FROM=
-    - HIPCHAT_ROOMS_NOTIFIED=
-backer-data:
-  image: dockerizedrupal/data:1.0.3
-  hostname: backer-data
-  volumes:
-    - /backer
+    - MAIL=Off
+    - MAIL_FROM=
+    - MAIL_TO=

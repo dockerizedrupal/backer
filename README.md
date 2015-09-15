@@ -1,19 +1,16 @@
-# backer
+# Backer
+
+Backer is a simple Docker container for [Backup](https://github.com/backup/backup) 
+that allows you to define your backup jobs through environment variables.
 
 ## Run the container
 
 Using the `docker` command:
 
-    CONTAINER="backer-data" && sudo docker run \
-      --name "${CONTAINER}" \
-      -h "${CONTAINER}" \
-      -v /backer \
-      dockerizedrupal/data:1.0.3
-
     CONTAINER="backer" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      --volumes-from backer-data \
+      -e SERVER_NAME="localhost" \
       -e MYSQL_HOST="localhost" \
       -e MYSQL_PORT="3306" \
       -e MYSQL_USERNAME="root" \
@@ -29,19 +26,18 @@ Using the `docker` command:
       -e S3_KEEP="30" \
       -e ARCHIVE="Off" \
       -e ARCHIVE_ADD="" \
-      -e HIPCHAT="Off" \
-      -e HIPCHAT_TOKEN="" \
-      -e HIPCHAT_FROM="" \
-      -e HIPCHAT_ROOMS_NOTIFIED="" \
+      -e MAIL="Off" \
+      -e MAIL_FROM="" \
+      -e MAIL_TO="" \
       -d \
-      dockerizedrupal/backer:1.0.1
+      dockerizedrupal/backer:1.0.2
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.1 \
+      && git checkout 1.0.2 \
       && sudo docker-compose up
 
 ## Build the image
@@ -49,8 +45,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.1 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.1 . \
+      && git checkout 1.0.2 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.2 . \
       && cd -
 
 ## License

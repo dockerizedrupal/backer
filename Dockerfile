@@ -8,6 +8,4 @@ ADD ./src /src
 
 RUN /src/entrypoint.sh build
 
-VOLUME ["/backer"]
-
 ENTRYPOINT ["/src/entrypoint.sh", "run"]

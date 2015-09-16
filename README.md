@@ -31,14 +31,14 @@ Using the `docker` command:
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
       -d \
-      dockerizedrupal/backer:1.0.4
+      dockerizedrupal/backer:1.0.5
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.4 \
+      && git checkout 1.0.5 \
       && sudo docker-compose up
 
 ## Build the image
@@ -46,8 +46,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.4 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.4 . \
+      && git checkout 1.0.5 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.5 . \
       && cd -
 
 ## License

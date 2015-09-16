@@ -1,13 +1,13 @@
 backer:
-  image: dockerizedrupal/backer:1.0.5
+  image: dockerizedrupal/backer:1.0.6
   hostname: backer
   environment:
     - SERVER_NAME=localhost
     - TIMEZONE=Etc/UTC
     - MYSQL_HOST=
     - MYSQL_PORT=3306
-    - MYSQL_USERNAME=root
-    - MYSQL_PASSWORD=root
+    - MYSQL_USERNAME=container
+    - MYSQL_PASSWORD=container
     - CRON_EXPRESSION=0 0 * * *
     - S3=Off
     - S3_ACCESS_KEY_ID=

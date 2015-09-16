@@ -1,7 +1,7 @@
 Model.new(:backer, 'Backer at <%= @server_name %>') do
   compress_with Gzip
 
-<% if @mysql_host and !@mysql_host.empty? %>
+<% if @mysql_host and !@mysql_host.empty? -%>
   database MySQL do |db|
     db.name = :all
     db.username = "<%= @mysql_username %>"
@@ -12,7 +12,7 @@ Model.new(:backer, 'Backer at <%= @server_name %>') do
     db.additional_options = ["--quick", "--single-transaction"]
     db.prepare_backup = true
   end
-<% end %>
+<% end -%>
 
 <% if @archive == "On" -%>
   archive :archive do |archive|

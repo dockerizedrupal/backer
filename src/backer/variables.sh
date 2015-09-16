@@ -33,13 +33,13 @@ else
 fi
 
 if [ -z "${MYSQL_USERNAME}" ]; then
-  export MYSQL_USERNAME="root"
+  export MYSQL_USERNAME="container"
 fi
 
 export FACTER_MYSQL_USERNAME="${MYSQL_USERNAME}"
 
 if [ -z "${MYSQL_PASSWORD}" ]; then
-  export MYSQL_PASSWORD="root"
+  export MYSQL_PASSWORD="container"
 fi
 
 export FACTER_MYSQL_PASSWORD="${MYSQL_PASSWORD}"

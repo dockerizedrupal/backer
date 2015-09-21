@@ -5,8 +5,6 @@ that allows you to define your backup jobs through environment variables.
 
 ## Run the container
 
-Using the `docker` command:
-
     CONTAINER="backer" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -30,25 +28,23 @@ Using the `docker` command:
       -e MAIL="Off" \
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
+      -e HTTP="Off" \
+      -e HTTP_URI="" \
       -d \
-      dockerizedrupal/backer:1.0.6
-
-Using the `docker-compose` command
-
-    TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
-      && cd "${TMP}" \
-      && git checkout 1.0.6 \
-      && sudo docker-compose up
+      dockerizedrupal/backer:1.0.7
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.6 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.6 . \
+      && git checkout 1.0.7 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.7 . \
       && cd -
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
 
 ## License
 

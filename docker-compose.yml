@@ -1,5 +1,5 @@
 backer:
-  image: dockerizedrupal/backer:1.0.9
+  image: dockerizedrupal/backer:1.0.10
   hostname: backer
   environment:
     - SERVER_NAME=localhost

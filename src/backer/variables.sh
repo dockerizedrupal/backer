@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export FACTER_VERSION="1.0.7"
+export FACTER_VERSION="1.0.8"
 
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"
@@ -96,10 +96,3 @@ fi
 export FACTER_MAIL="${MAIL}"
 export FACTER_MAIL_FROM="${MAIL_FROM}"
 export FACTER_MAIL_TO="${MAIL_TO}"
-
-if [ -z "${HTTP}" ]; then
-  export HTTP="Off"
-fi
-
-export FACTER_HTTP="${HTTP}"
-export FACTER_HTTP_URI="${HTTP_URI}"

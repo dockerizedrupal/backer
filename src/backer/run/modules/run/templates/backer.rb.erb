@@ -1,4 +1,4 @@
-Model.new(:backer, 'Backer at <%= @server_name %> (<%= @version %>)') do
+Model.new(:backer, 'Backer at <%= @server_name %> - <%= @version %>') do
   compress_with Gzip
 
 <% if @mysql_host and !@mysql_host.empty? -%>
@@ -41,17 +41,6 @@ Model.new(:backer, 'Backer at <%= @server_name %> (<%= @version %>)') do
     mail.delivery_method = :sendmail
     mail.from = "<%= @mail_from %>"
     mail.to = "<%= @mail_to %>"
-  end
-<% end -%>
-
-<% if @http == "On" -%>
-  notify_by Mail do |mail|
-    post.on_success = true
-    post.on_warning = true
-    post.on_failure = true
-
-    post.uri = '<%= @http_uri %>'
-    post.ssl_verify_peer = false
   end
 <% end -%>
 end

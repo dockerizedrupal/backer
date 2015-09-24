@@ -28,18 +28,16 @@ that allows you to define your backup jobs through environment variables.
       -e MAIL="Off" \
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
-      -e HTTP="Off" \
-      -e HTTP_URI="" \
       -d \
-      dockerizedrupal/backer:1.0.7
+      dockerizedrupal/backer:1.0.8
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.7 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.7 . \
+      && git checkout 1.0.8 \
+      && sudo docker build -t dockerizedrupal/backer:1.0.8 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables

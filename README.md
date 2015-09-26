@@ -1,7 +1,6 @@
 # Backer
 
-Backer is a simple Docker container for [Backup](https://github.com/backup/backup) 
-that allows you to define your backup jobs through environment variables.
+Backer is a simple Docker container for this awesome tool called [Backup](https://github.com/backup/backup) that allows you to define your backup jobs through environment variables.
 
 ## Run the container
 
@@ -29,15 +28,15 @@ that allows you to define your backup jobs through environment variables.
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
       -d \
-      dockerizedrupal/backer:1.0.10
+      dockerizedrupal/backer:1.1.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.10 \
-      && sudo docker build -t dockerizedrupal/backer:1.0.10 . \
+      && git checkout 1.1.0 \
+      && sudo docker build -t dockerizedrupal/backer:1.1.0 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables

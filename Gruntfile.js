@@ -1,5 +1,5 @@
-var current_version = '1.0.9';
-var new_version = '1.0.10';
+var current_version = '1.0.10';
+var new_version = '1.1.0';
 
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-replace');
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           }
         ]
       },
-      task4: {
+      task5: {
         options: {
           patterns: [
             {

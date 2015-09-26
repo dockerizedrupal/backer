@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export FACTER_VERSION="1.0.10"
+export FACTER_VERSION="1.1.0"
 
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"

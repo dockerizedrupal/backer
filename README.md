@@ -1,6 +1,8 @@
 # Backer
 
-Backer is a simple Docker container for this awesome tool called [Backup](https://github.com/backup/backup) that allows you to define your backup jobs through environment variables.
+Backer is a simple Docker image for the awesome tool called [Backup](https://github.com/backup/backup) that allows you to define your backup jobs through environment variables.
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 

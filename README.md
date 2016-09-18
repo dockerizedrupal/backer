@@ -2,8 +2,6 @@
 
 Backer is a simple Docker image for the awesome tool called [Backup](https://github.com/backup/backup) that allows you to define your backup jobs through environment variables.
 
-This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
-
 ## Run the container
 
     CONTAINER="backer" && sudo docker run \
@@ -30,20 +28,16 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e MAIL_FROM="" \
       -e MAIL_TO="" \
       -d \
-      dockerizedrupal/backer:1.1.0
+      dockerizedrupal/backer:2.0.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/backer.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.1.0 \
-      && sudo docker build -t dockerizedrupal/backer:1.1.0 . \
+      && git checkout 2.0.0 \
+      && sudo docker build -t dockerizedrupal/backer:2.0.0 . \
       && cd -
-
-## Changing the container behaviour on runtime through environment variables
-
-    // TODO
 
 ## License
 

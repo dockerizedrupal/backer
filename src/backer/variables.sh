@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export FACTER_VERSION="1.1.0"
+export FACTER_VERSION="2.0.0"
 
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"
@@ -35,25 +35,29 @@ else
 fi
 
 if [ -z "${MYSQL_USERNAME}" ]; then
-  export MYSQL_USERNAME="container"
+  MYSQL_USERNAME="container"
 fi
 
 export FACTER_MYSQL_USERNAME="${MYSQL_USERNAME}"
 
 if [ -z "${MYSQL_PASSWORD}" ]; then
-  export MYSQL_PASSWORD="container"
+  MYSQL_PASSWORD="container"
 fi
 
 export FACTER_MYSQL_PASSWORD="${MYSQL_PASSWORD}"
 
 if [ -z "${CRON_EXPRESSION}" ]; then
-  export CRON_EXPRESSION="0 0 * * *"
+  CRON_EXPRESSION="0 0 * * *"
 fi
 
 export FACTER_CRON_EXPRESSION="${CRON_EXPRESSION}"
 
 if [ -z "${ARCHIVE}" ]; then
-  export ARCHIVE="Off"
+  ARCHIVE="Off"
+fi
+
+if [ "${ARCHIVE}" == "True" ]; then
+  ARCHIVE="On"
 fi
 
 export FACTER_ARCHIVE="${ARCHIVE}"
@@ -61,7 +65,11 @@ export FACTER_ARCHIVE="${ARCHIVE}"
 export FACTER_ARCHIVE_ADD="${ARCHIVE_ADD}"
 
 if [ -z "${S3}" ]; then
-  export S3="Off"
+  S3="Off"
+fi
+
+if [ "${S3}" == "True" ]; then
+  S3="On"
 fi
 
 export FACTER_S3="${S3}"
@@ -72,25 +80,29 @@ export FACTER_S3_REGION="${S3_REGION}"
 export FACTER_S3_BUCKET="${S3_BUCKET}"
 
 if [ -z "${S3_MAX_RETRIES}" ]; then
-  export S3_MAX_RETRIES="10"
+  S3_MAX_RETRIES="10"
 fi
 
 export FACTER_S3_MAX_RETRIES="${S3_MAX_RETRIES}"
 
 if [ -z "${S3_RETRY_WAITSEC}" ]; then
-  export S3_RETRY_WAITSEC="30"
+  S3_RETRY_WAITSEC="30"
 fi
 
 export FACTER_S3_RETRY_WAITSEC="${S3_RETRY_WAITSEC}"
 
 if [ -z "${S3_KEEP}" ]; then
-  export S3_KEEP="30"
+  S3_KEEP="30"
 fi
 
 export FACTER_S3_KEEP="${S3_KEEP}"
 
 if [ -z "${MAIL}" ]; then
-  export MAIL="Off"
+  MAIL="Off"
+fi
+
+if [ "${MAIL}" == "True" ]; then
+  MAIL="On"
 fi
 
 export FACTER_MAIL="${MAIL}"
